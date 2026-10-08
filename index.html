@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>佐渡イベントカレンダー</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" id="top"><nav><a class="logo" href="#top">佐渡イベントカレンダー</a><div><a href="#calendar">カレンダー</a><a class="nav-button" href="#submit">イベントを掲載する</a></div></nav></header>
+  <main>
+    <section class="intro"><p class="eyebrow">SADO EVENT CALENDAR</p><h1>佐渡のイベントを<br />すぐに見つけよう。</h1><p>佐渡市内で開催される祭り、文化、自然、地域の催しを掲載しています。</p><a class="button" href="#calendar">今月のイベントを見る</a></section>
+    <section class="calendar-section" id="calendar"><div class="section-head"><div><p class="eyebrow" id="month-label"></p><h2>イベントカレンダー</h2></div><div class="calendar-nav"><button id="previous-month" aria-label="前の月">‹</button><button id="today">今月</button><button id="next-month" aria-label="次の月">›</button></div></div><div class="filters" id="filters"></div><div class="calendar" id="calendar-grid"></div></section>
+    <section class="upcoming"><p class="eyebrow">EVENTS</p><h2 id="list-title">今月のイベント</h2><div class="event-list" id="event-list"></div></section>
+    <section class="submit" id="submit"><div><p class="eyebrow">POST AN EVENT</p><h2>イベントを掲載する</h2><p>掲載したい催しの情報を入力してください。送信後、カレンダーへ反映されます。</p><p class="notice">※ 公開サイトで運用する前に、迷惑投稿対策を設定します。</p></div><form id="event-form"><label>イベント名<input required name="title" placeholder="例：秋の収穫祭" /></label><div class="two-columns"><label>開催日<input required type="date" name="event_date" /></label><label>時間<input name="time" placeholder="例：10:00〜16:00" /></label></div><label>会場<input required name="venue" placeholder="例：真野公園" /></label><label>カテゴリ<select name="category"><option value="festival">お祭り</option><option value="culture">文化・芸術</option><option value="market">マーケット</option><option value="outdoor">自然・体験</option><option value="other">その他</option></select></label><label>詳細<textarea required name="details" placeholder="内容、参加費、申込方法など"></textarea></label><label>連絡用メールアドレス<input required type="email" name="contact_email" placeholder="info@example.com" /></label><button class="button" type="submit">掲載する</button><p class="form-message" id="form-message"></p></form></section>
+  </main><footer>© 佐渡イベントカレンダー　掲載情報は主催者にご確認ください。</footer>
+  <script src="app.js"></script>
+</body></html>
