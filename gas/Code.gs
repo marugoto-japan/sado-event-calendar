@@ -96,8 +96,11 @@ function updateGithub_(values) {
   const file = JSON.parse(current.getContentText());
   const list = JSON.parse(Utilities.newBlob(Utilities.base64Decode(file.content.replace(/\n/g, ''))).getDataAsString('UTF-8'));
   const newId = list.reduce((max, event) => Math.max(max, Number(event.id) || 0), 0) + 1;
-  const event = { id: newId, title: values[3], date: values[4], time: values[6], venue: values[7], category: values[8], description: values[9], sourceUrl: values[10] };
-  if (values[5]) event.endDate = values[5];
+  // スプレッドシートの日付はDate型で返るため、時刻を除いた YYYY-MM-DD に統一します。
+  // この形式ならAstroのカレンダーが開催日を正しく判定できます。
+  const event = { id: newId, title: values[3], date: dateOnly_(values[4]), time: values[6], venue: values[7], category: values[8], description: values[9], sourceUrl: values[10] };
+  const endDate = dateOnly_(values[5]);
+  if (endDate) event.endDate = endDate;
   list.push(event);
   const content = Utilities.base64Encode(Utilities.newBlob(JSON.stringify(list, null, 2)).getBytes());
   const update = UrlFetchApp.fetch(url, {
@@ -127,6 +130,12 @@ function findSubmission_(id, token) {
 
 function getRequiredProperty_(name) { const value = PropertiesService.getScriptProperties().getProperty(name); if (!value) throw new Error(`スクリプトプロパティ ${name} が未設定です。`); return value; }
 function limit_(value, max) { return String(value || '').trim().slice(0, max); }
+function dateOnly_(value) {
+  if (!value) return '';
+  if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value)) return Utilities.formatDate(value, Session.getScriptTimeZone(), 'yyyy-MM-dd');
+  const match = String(value).match(/^\d{4}-\d{2}-\d{2}/);
+  return match ? match[0] : '';
+}
 function text_(value) { return ContentService.createTextOutput(value); }
 function escapeHtml_(value) { return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function page_(title, body) { return HtmlService.createHtmlOutput(`<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml_(title)}</title><style>body{max-width:680px;margin:40px auto;padding:0 20px;font-family:sans-serif;color:#183b38}dl{display:grid;grid-template-columns:130px 1fr;border-top:1px solid #ddd}dt,dd{margin:0;padding:12px;border-bottom:1px solid #ddd}dt{font-weight:bold;background:#f6f2e9}button{background:#d8644b;color:#fff;border:0;padding:13px 18px;font-weight:bold;cursor:pointer}pre{white-space:pre-wrap}</style><h1>${escapeHtml_(title)}</h1>${body}</html>`); }
