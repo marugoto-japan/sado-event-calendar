@@ -1,11 +1,106 @@
 [
-  {"id":1,"title":"佐渡（310）ヶ島フェス2026","date":"2026-10-03","time":"時間は主催者へご確認ください","venue":"会場は主催者へご確認ください","category":"other","description":"佐渡の食や文化を楽しむイベントです。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":2,"title":"日本フィルハーモニー交響楽団 佐渡公演2026","date":"2026-10-04","time":"時間は主催者へご確認ください","venue":"会場は主催者へご確認ください","category":"culture","description":"佐渡市内の中高生との合同演奏を含むクラシック公演です。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":3,"title":"鬼太鼓inにいぼ 朱鷺夕映え市","date":"2026-10-04","time":"時間は主催者へご確認ください","venue":"会場は主催者へご確認ください","category":"culture","description":"新穂地区の鬼太鼓と夕映え市を楽しめます。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":4,"title":"オアシス2026秋　sea級グルメ　佐渡大会","date":"2026-10-10","endDate":"2026-10-11","time":"時間は主催者へご確認ください","venue":"会場は主催者へご確認ください","category":"market","description":"佐渡の食材をテーマにしたグルメイベントです。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":5,"title":"宿根木祭り","date":"2026-10-10","endDate":"2026-10-11","time":"時間は主催者へご確認ください","venue":"宿根木集落","category":"culture","description":"大神楽舞楽や大獅子、鬼太鼓が行われる神社の例祭です。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":6,"title":"10月 天領佐渡両津薪能 特別公演","date":"2026-10-12","time":"時間は主催者へご確認ください","venue":"椎崎諏訪神社能舞台","category":"culture","description":"加茂湖を望む能舞台で行われる薪能です。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":7,"title":"2026佐渡鈍翁茶会","date":"2026-10-17","endDate":"2026-10-18","time":"時間は主催者へご確認ください","venue":"佐渡奉行所跡","category":"other","description":"佐渡奉行所跡で開かれる茶会です。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":8,"title":"正法寺ろうそく能","date":"2026-10-18","time":"時間は主催者へご確認ください","venue":"正法寺","category":"culture","description":"ろうそくの明かりの中で行われる奉納能です。","sourceUrl":"https://www.visitsado.com/event/"},
-  {"id":9,"title":"相川祭り","date":"2026-10-19","time":"時間は主催者へご確認ください","venue":"善知鳥神社周辺","category":"culture","description":"相川の総鎮守で行われる歴史ある例祭です。","sourceUrl":"https://www.visitsado.com/event/"}
+  {
+    "id": 1,
+    "title": "佐渡（310）ヶ島フェス2026",
+    "date": "2026-10-03",
+    "time": "時間は主催者へご確認ください",
+    "venue": "会場は主催者へご確認ください",
+    "category": "other",
+    "description": "佐渡の食や文化を楽しむイベントです。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 2,
+    "title": "日本フィルハーモニー交響楽団 佐渡公演2026",
+    "date": "2026-10-04",
+    "time": "時間は主催者へご確認ください",
+    "venue": "会場は主催者へご確認ください",
+    "category": "culture",
+    "description": "佐渡市内の中高生との合同演奏を含むクラシック公演です。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 3,
+    "title": "鬼太鼓inにいぼ 朱鷺夕映え市",
+    "date": "2026-10-04",
+    "time": "時間は主催者へご確認ください",
+    "venue": "会場は主催者へご確認ください",
+    "category": "culture",
+    "description": "新穂地区の鬼太鼓と夕映え市を楽しめます。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 4,
+    "title": "オアシス2026秋　sea級グルメ　佐渡大会",
+    "date": "2026-10-10",
+    "endDate": "2026-10-11",
+    "time": "時間は主催者へご確認ください",
+    "venue": "会場は主催者へご確認ください",
+    "category": "market",
+    "description": "佐渡の食材をテーマにしたグルメイベントです。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 5,
+    "title": "宿根木祭り",
+    "date": "2026-10-10",
+    "endDate": "2026-10-11",
+    "time": "時間は主催者へご確認ください",
+    "venue": "宿根木集落",
+    "category": "culture",
+    "description": "大神楽舞楽や大獅子、鬼太鼓が行われる神社の例祭です。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 6,
+    "title": "10月 天領佐渡両津薪能 特別公演",
+    "date": "2026-10-12",
+    "time": "時間は主催者へご確認ください",
+    "venue": "椎崎諏訪神社能舞台",
+    "category": "culture",
+    "description": "加茂湖を望む能舞台で行われる薪能です。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 7,
+    "title": "2026佐渡鈍翁茶会",
+    "date": "2026-10-17",
+    "endDate": "2026-10-18",
+    "time": "時間は主催者へご確認ください",
+    "venue": "佐渡奉行所跡",
+    "category": "other",
+    "description": "佐渡奉行所跡で開かれる茶会です。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 8,
+    "title": "正法寺ろうそく能",
+    "date": "2026-10-18",
+    "time": "時間は主催者へご確認ください",
+    "venue": "正法寺",
+    "category": "culture",
+    "description": "ろうそくの明かりの中で行われる奉納能です。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 9,
+    "title": "相川祭り",
+    "date": "2026-10-19",
+    "time": "時間は主催者へご確認ください",
+    "venue": "善知鳥神社周辺",
+    "category": "culture",
+    "description": "相川の総鎮守で行われる歴史ある例祭です。",
+    "sourceUrl": "https://www.visitsado.com/event/"
+  },
+  {
+    "id": 10,
+    "title": "test-event",
+    "date": "2026-10-16T00:00:00.000Z",
+    "time": "10:00-16:00",
+    "venue": "新潟",
+    "category": "festival",
+    "description": "新潟行き",
+    "sourceUrl": "",
+    "endDate": "2026-10-16T00:00:00.000Z"
+  }
 ]
