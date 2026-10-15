@@ -102,5 +102,16 @@
     "description": "新潟行き",
     "sourceUrl": "",
     "endDate": "2026-10-16T00:00:00.000Z"
+  },
+  {
+    "id": 11,
+    "title": "test-event",
+    "date": "2026-10-16T00:00:00.000Z",
+    "time": "",
+    "venue": "新潟",
+    "category": "festival",
+    "description": "新潟",
+    "sourceUrl": "",
+    "endDate": "2026-10-16T00:00:00.000Z"
   }
 ]
