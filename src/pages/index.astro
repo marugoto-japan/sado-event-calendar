@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { events } from '../data/events';
+import { submissionEndpoint } from '../config/site';
+---
+<BaseLayout>
+  <header class="site-header" id="top">
+    <nav aria-label="メインナビゲーション">
+      <a class="logo" href="#top">佐渡イベントカレンダー</a>
+      <a class="nav-button" href="#calendar">イベントを探す</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">SADO EVENT CALENDAR</p>
+      <h1 id="intro-title">佐渡のイベントを<br />すぐに見つけよう。</h1>
+      <p>佐渡市内で開催される祭り、文化、自然、地域の催しを掲載しています。</p>
+      <a class="button" href="#calendar">今月のイベントを見る</a>
+    </section>
+
+    <section class="calendar-section" id="calendar" aria-labelledby="calendar-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" id="month-label"></p>
+          <h2 id="calendar-title">イベントカレンダー</h2>
+        </div>
+        <div class="calendar-nav" aria-label="月の切り替え">
+          <button id="previous-month" type="button" aria-label="前の月">‹</button>
+          <button id="today" type="button">今月</button>
+          <button id="next-month" type="button" aria-label="次の月">›</button>
+        </div>
+      </div>
+      <div class="filters" id="filters" aria-label="カテゴリで絞り込む"></div>
+      <div class="calendar" id="calendar-grid" aria-label="月間カレンダー"></div>
+    </section>
+
+    <section class="upcoming" aria-labelledby="events-title">
+      <p class="eyebrow">EVENTS</p>
+      <h2 id="events-title">今月のイベント</h2>
+      <div class="event-list" id="event-list"></div>
+    </section>
+
+    <section class="submit" id="submit" aria-labelledby="post-title">
+      <div>
+        <p class="eyebrow">POST AN EVENT</p>
+        <h2 id="post-title">イベントを掲載する</h2>
+        <p>掲載をご希望の方は、下のフォームからお送りください。内容を確認した後に掲載します。</p>
+      </div>
+      <div class="submit-note">
+        {submissionEndpoint ? (
+          <form id="event-submission-form" action={submissionEndpoint} method="post" target="submission-target">
+            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <label>イベント名<input name="title" required maxlength="100" /></label>
+            <div class="form-row"><label>開始日<input name="date" type="date" required /></label><label>終了日（任意）<input name="endDate" type="date" /></label></div>
+            <label>開催時間<input name="time" maxlength="80" placeholder="例：10:00〜16:00" /></label>
+            <label>会場<input name="venue" required maxlength="100" /></label>
+            <label>種類<select name="category"><option value="other">その他</option><option value="market">マーケット・食</option><option value="culture">文化・芸術</option><option value="outdoor">自然・体験</option><option value="festival">お祭り</option></select></label>
+            <label>内容<textarea name="description" required maxlength="500"></textarea></label>
+            <label>公式サイトURL（任意）<input name="sourceUrl" type="url" maxlength="300" /></label>
+            <label>連絡先メールアドレス<input name="email" type="email" required maxlength="200" /></label>
+            <button class="button" type="submit">内容を送信する</button>
+            <p id="submission-message" class="form-message" hidden aria-live="polite"></p>
+          </form>
+        ) : (
+          <p class="setup-message">現在、投稿フォームを準備中です。</p>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <footer>© 佐渡イベントカレンダー　掲載情報は主催者にご確認ください。</footer>
+  <script id="event-data" type="application/json" set:html={JSON.stringify(events)}></script>
+  <script>
+    import '../scripts/calendar';
+    import '../scripts/submission';
+  </script>
+  <iframe name="submission-target" title="イベント投稿の送信先" class="submission-target"></iframe>
+</BaseLayout>

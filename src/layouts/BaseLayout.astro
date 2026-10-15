@@ -1,0 +1,18 @@
+---
+import '../styles/global.css';
+
+type Props = { title?: string };
+const { title = '佐渡イベントカレンダー' } = Astro.props;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="佐渡市内で開催されるイベントを探せる、軽量なイベントカレンダーです。" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
