@@ -21,19 +21,28 @@ function dateKey(year: number, month: number, day: number) {
   return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
+// GAS経由で時刻付きのISO形式が来た場合も、日付部分だけを使います。
+function dayOnly(value: string) {
+  return value.slice(0, 10);
+}
+
 function occursOn(event: EventItem, key: string) {
-  return event.date <= key && (event.endDate ?? event.date) >= key;
+  const start = dayOnly(event.date);
+  const end = dayOnly(event.endDate ?? event.date);
+  return start <= key && end >= key;
 }
 
 function eventDateLabel(event: EventItem) {
-  return event.endDate ? `${Number(event.date.slice(8))}〜${Number(event.endDate.slice(8))}日` : `${Number(event.date.slice(8))}日`;
+  const start = dayOnly(event.date);
+  const end = event.endDate ? dayOnly(event.endDate) : '';
+  return end ? `${Number(start.slice(8))}〜${Number(end.slice(8))}日` : `${Number(start.slice(8))}日`;
 }
 
 function render() {
   const year = displayedMonth.getFullYear();
   const month = displayedMonth.getMonth();
   const monthPrefix = `${year}-${String(month + 1).padStart(2, '0')}`;
-  const monthEvents = events.filter((event) => event.date.startsWith(monthPrefix));
+  const monthEvents = events.filter((event) => dayOnly(event.date).startsWith(monthPrefix));
   const shown = activeCategory === 'all' ? monthEvents : monthEvents.filter((event) => event.category === activeCategory);
   const monthLabel = document.querySelector('#month-label');
   const eventsTitle = document.querySelector('#events-title');
@@ -55,7 +64,7 @@ function render() {
     return `<div class="day"><strong>${day}</strong>${daily.map((event) => `<div class="mini-event ${event.category}">${event.title}</div>`).join('')}</div>`;
   }).join('');
   calendarGrid.innerHTML = headers + blanks + dates;
-  eventList.innerHTML = shown.sort((a, b) => a.date.localeCompare(b.date)).map((event) => `
+  eventList.innerHTML = shown.sort((a, b) => dayOnly(a.date).localeCompare(dayOnly(b.date))).map((event) => `
     <article class="event-card">
       <div class="date"><b>${eventDateLabel(event)}</b><span>${month + 1}月</span></div>
       <div class="event-icon">${icons[event.category] ?? icons.other}</div>
