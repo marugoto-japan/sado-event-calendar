@@ -42,7 +42,14 @@ function render() {
   const year = displayedMonth.getFullYear();
   const month = displayedMonth.getMonth();
   const monthPrefix = `${year}-${String(month + 1).padStart(2, '0')}`;
-  const monthEvents = events.filter((event) => dayOnly(event.date).startsWith(monthPrefix));
+  // 月をまたぐイベントも、その月の一覧とカレンダーに表示します。
+  const monthStart = `${monthPrefix}-01`;
+  const monthEnd = dateKey(year, month, new Date(year, month + 1, 0).getDate());
+  const monthEvents = events.filter((event) => {
+    const start = dayOnly(event.date);
+    const end = dayOnly(event.endDate ?? event.date);
+    return start <= monthEnd && end >= monthStart;
+  });
   const shown = activeCategory === 'all' ? monthEvents : monthEvents.filter((event) => event.category === activeCategory);
   const monthLabel = document.querySelector('#month-label');
   const eventsTitle = document.querySelector('#events-title');

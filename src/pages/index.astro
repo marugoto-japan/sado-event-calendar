@@ -12,11 +12,23 @@ import { submissionEndpoint } from '../config/site';
   </header>
 
   <main>
-    <section class="intro" aria-labelledby="intro-title">
+    <section class="intro hero" aria-labelledby="intro-title">
       <p class="eyebrow">SADO EVENT CALENDAR</p>
       <h1 id="intro-title">佐渡のイベントを<br />すぐに見つけよう。</h1>
       <p>佐渡市内で開催される祭り、文化、自然、地域の催しを掲載しています。</p>
       <a class="button" href="#calendar">今月のイベントを見る</a>
+    </section>
+
+    <section class="scenes" aria-labelledby="scenes-title">
+      <div class="scenes-heading">
+        <p class="eyebrow">SCENES</p>
+        <h2 id="scenes-title">旅の景色と、出会う一日。</h2>
+        <p>海辺や街の景色とともに、佐渡で開かれる催しを見つけてください。</p>
+      </div>
+      <div class="scene-grid">
+        <figure class="scene-card sea-scene"><img src="/sado-event-calendar/images/sea-view.jpg" alt="青空と穏やかな海" loading="lazy" /><figcaption>海辺で過ごす、ゆったりした時間</figcaption></figure>
+        <figure class="scene-card tower-scene"><img src="/sado-event-calendar/images/tower-view.jpg" alt="色鮮やかな塔と街の風景" loading="lazy" /><figcaption>街へ出かける、楽しみな一日</figcaption></figure>
+      </div>
     </section>
 
     <section class="calendar-section" id="calendar" aria-labelledby="calendar-title">
